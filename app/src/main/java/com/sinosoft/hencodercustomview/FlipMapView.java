@@ -82,6 +82,7 @@ public class FlipMapView extends View {
         canvas.save();
         camera.save();
         canvas.translate(centerX, centerY);
+        //rotate为canvas绕某一个点旋转
         canvas.rotate(-degreeZ);
         camera.rotateY(degreeY);
         camera.applyToCanvas(canvas);
