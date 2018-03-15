@@ -87,6 +87,7 @@ public class FlipMapView extends View {
         camera.rotateY(degreeY);
         camera.applyToCanvas(canvas);
         //计算裁切参数时清注意，此时的canvas的坐标系已经移动
+        //当degreeZ为0时，裁剪的是右上角的1/4的位置
         canvas.clipRect(0, -centerY, centerX, centerY);
         canvas.rotate(degreeZ);
         canvas.translate(-centerX, -centerY);
@@ -100,6 +101,7 @@ public class FlipMapView extends View {
         canvas.translate(centerX, centerY);
         canvas.rotate(-degreeZ);
         //计算裁切参数时清注意，此时的canvas的坐标系已经移动
+        //当degreeZ为0时，裁剪的是左上角的1/4的位置
         canvas.clipRect(-centerX, -centerY, 0, centerY);
         //此时的canvas的坐标系已经旋转，所以这里是rotateY
         camera.rotateY(fixDegreeY);
